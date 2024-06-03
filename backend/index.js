@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(cors(
     {
-        origin:["https://movie-playlist-frontend.vercel.app/"],
+        origin:["https://movie-playlist-frontend.vercel.app"],
         methods:["POST", "GET"],
         credentials: true
     }
