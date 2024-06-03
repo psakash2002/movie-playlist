@@ -27,7 +27,7 @@ const SignUp=()=>{
         setError('')
         //SignUp API call
         try{
-            const response = await axiosInstance.post("/create-account",{
+            const response = await axiosInstance.post("https://movie-playlist-tau.vercel.app//create-account",{
                 fullName: name,
                 email:email,
                 password:password,
