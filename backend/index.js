@@ -9,7 +9,13 @@ import cors from 'cors';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors(
+    {
+        origin:["https://movie-playlist-frontend.vercel.app/"],
+        methods:["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json());    
 const PORT=4040;
 
