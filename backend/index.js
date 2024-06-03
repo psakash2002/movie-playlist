@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGODB_URI)
         app.get("/", (req,res)=>{
             res.json({data:"hello"});
         });
-        app.post("create-account", async(req, res)=>{
+        app.post("/create-account", async(req, res)=>{
             const {fullName,email, password}=req.body;
             if(!fullName){
                 return res
@@ -65,7 +65,7 @@ mongoose.connect(process.env.MONGODB_URI)
                 mesage:"Registration Successful",
             })
         });
-        app.post("login", async (req,res) => {
+        app.post("/login", async (req,res) => {
             const {email, password} = req.body;
             if(!email){
                 return res.status(400).json({message:"Email is required"});
