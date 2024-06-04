@@ -1,38 +1,41 @@
-import React from 'react'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './navbar.css';
-import Profileinfo from '../Cards/Profileinfo'
-import SearchBar from '../SearchBar/SearchBar';
+import Profileinfo from '../Cards/Profileinfo';
+import SearchBar from '../SearchBar/SearchBar'; // Assuming SearchBar component exists
 import { useNavigate } from 'react-router-dom';
 
-
-const Navbar = ({searchQuery,setSearchQuery}) => {
+const Navbar = ({ searchQuery, setSearchQuery }) => {
   const navigate = useNavigate();
-  const onLogout=()=>{
+
+  const onLogout = () => {
     navigate("/login");
   };
-  const handleSearch=()=>{
+
+  const handleSearch = () => {
 
   };
-  const onClearSearch =()=>{
+
+  const onClearSearch = () => {
     setSearchQuery("");
-  }
+  };
+
   return (
-    <div className='bar'>
-    <div>
-        <h2>Moviephile</h2>
-        <SearchBar 
-        value={searchQuery}
-        onChange={({target})=>{
-          setSearchQuery(target.value);
-        }}
-        handleSearch={handleSearch}
-        onClearSearch={onClearSearch}
+    <div className='bar' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 2rem', backgroundColor: '#20232a', color: 'white', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+        <h2 style={{ margin: '0', fontSize: '1.5rem', fontWeight: 'bold', color: '#f0f0f0' }}>Moviephile</h2> {/* Adjusted font color */}
+        <SearchBar
+          value={searchQuery}
+          onChange={({ target }) => {
+            setSearchQuery(target.value);
+          }}
+          handleSearch={handleSearch}
+          onClearSearch={onClearSearch}
+          style={{ marginLeft: '10rem', width: '50%', backgroundColor: '#333', borderRadius: '5px', padding: '0.5rem 1rem', color: 'white' }} // Added search bar styles
         />
-        <Profileinfo onLogout={onLogout}/>
+      </div>
+      <Profileinfo onLogout={onLogout} />
     </div>
-    </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
